@@ -1,7 +1,27 @@
+// apiKey
 var apiKey = "1d4b1aacf5896d38bf0400bb7ba7aced";
 
+// create input form 
+
+// create recent searches container
+
+// create current locale and date container
+var getForecast = function(forecast) {
+
+}
+// create 5 day forecast container
+
+var displayWeather = function(forecast) {
+    if (forecast.length === 0) {
+        forecastContainerEl.textContent = "No data";
+        return;
+    }
+
+}
+
+// create api function
 var getCurrentWeather = function(location) {
-    // format the github api url
+    // format the weather api url
     var apiUrl = "api.openweathermap.org/data/2.5/weather?q=" + location "&appid=" + apiKey}
 
 
@@ -18,5 +38,8 @@ var getCurrentWeather = function(location) {
     })
     .catch(function(error) {
         // notice this '.catch()' getting chained onto the end of the '.then()' method
-        alert("Unable to connect to GitHub");
+        alert("Unable to connect to Weather Data");
     });
+
+    // store in localStorage
+
