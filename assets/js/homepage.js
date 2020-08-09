@@ -6,8 +6,11 @@ var apiKey = "1d4b1aacf5896d38bf0400bb7ba7aced";
 // create recent searches container
 
 // create current locale and date container
-var getForecast = function(forecast) {
-
+function getForecast(location) {
+    fetch('https://api.openweathermap.org/data/2.5/weather?q=' + location '+&appid=' + apiKey)
+    .then(function(response) {
+        return response.json();
+    })
 }
 // create 5 day forecast container
 
