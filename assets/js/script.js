@@ -2,8 +2,14 @@
 var apiKey = "1d4b1aacf5896d38bf0400bb7ba7aced";
 
 // create input form 
-
-// create recent searches container
+$("#searchBtn").on("click", function() {
+    var location = $("#location").val();
+    if(location === ''){
+        alert("Please enter a city");
+    }
+    $("#location").val("");
+    getForecast(location);
+});
 
 // create current locale and date container
 function getForecast(location) {
@@ -21,6 +27,7 @@ var displayWeather = function(forecast) {
     }
 
 }
+// create recent searches container
 
 // create api function
 var getCurrentWeather = function(location) {
@@ -33,7 +40,7 @@ var getCurrentWeather = function(location) {
         // request was successful
         if (response.ok) {
         response.json().then(function(data){
-            displayRepos(data,location);
+            displayCurrentWeather(data,location);
         });
     }   else {
         alert("Error: " + response.statusText);

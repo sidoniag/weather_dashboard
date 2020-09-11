@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" />
     <link rel="style" href=".assets/css/style.css" />
     <title>Weather Dashboard</title>
 </head>
+<body>
 <header>
     <div class="pos-f-t">
         <div class="collapse" id="navbarToggleExternalContent">
@@ -27,12 +29,12 @@
           <form id="user-form" class="card-body">
             <label class="form-label" for="username">City</label>
             <input name="username" id="username" type="text" autofocus="true" class="form-input" />
-            <button type="submit" class="btn">Get Forecast</button>
+            <button type="submit" class="btn" id="searchBtn">Get Forecast</button>
           </form>
         </div>
         </div>
 </header>
-<body>
-    <script src="assets/js/homepage.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 </html>
