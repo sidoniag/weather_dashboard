@@ -1,6 +1,6 @@
 // apiKey
 var apiKey = "1d4b1aacf5896d38bf0400bb7ba7aced";
-
+var apiUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + location + '+&appid=' + apiKey;
 // create input form 
 $("#searchBtn").on("click", function() {
     var location = $("#location").val();
@@ -13,7 +13,7 @@ $("#searchBtn").on("click", function() {
 
 // create current locale and date container
 function getForecast(location) {
-    fetch('https://api.openweathermap.org/data/2.5/weather?q=' + location '+&appid=' + apiKey)
+    fetch(apiUrl)
     .then(function(response) {
         return response.json();
     })
