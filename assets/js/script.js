@@ -32,8 +32,6 @@ var displayWeather = function(forecast) {
 // create api function
 var getCurrentWeather = function(location) {
     // format the weather api url
-    var apiUrl = "api.openweathermap.org/data/2.5/weather?q=" + location "&appid=" + apiKey}
-
 
     // make a request to the url
     fetch(apiUrl).then(function(response) {
