@@ -1,6 +1,8 @@
+// var userFormEl = document.querySelector("#user-form");
 // apiKey
 var apiKey = "1d4b1aacf5896d38bf0400bb7ba7aced";
 var apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + location + "+&appid=" + apiKey;
+
 // create input form 
 $("#searchBtn").on("click", function() {
     var location = $("#location").val();
@@ -18,8 +20,8 @@ function getForecast(location) {
         return response.json();
     })
 }
-// create 5 day forecast container
 
+// create 5 day forecast container
 var displayWeather = function(forecast) {
     if (forecast.length === 0) {
         forecastContainerEl.textContent = "No data";
@@ -27,6 +29,7 @@ var displayWeather = function(forecast) {
     }
 
 }
+
 // create recent searches container
 
 // create api function
@@ -52,4 +55,7 @@ var getCurrentWeather = function(location) {
     });
 }
 
-    // store in localStorage 
+// store in localStorage 
+
+// event listeners
+// userFormEl.addEventListener("submit", formSubmitHandler);
