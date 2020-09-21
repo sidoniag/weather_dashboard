@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="style" href=".assets/css/style.css" />
     <title>Weather Dashboard</title>
 </head>
+
 <body>
 <header>
     <div class="pos-f-t">
@@ -23,18 +25,24 @@
           </button>
         </nav>
       </div>
-      <div class="col-12 col-md-4">
-        <div class="card">
+</header>
+
+      <div class="col-lg-3">
+        <div class="row">
           <h3 class="card-header text-uppercase">Search By City</h3>
-          <form id="user-form" class="card-body">
             <label class="form-label" for="username">City</label>
             <input name="username" id="username" type="text" autofocus="true" class="form-input" />
             <button type="submit" class="btn" id="searchBtn">Get Forecast</button>
-          </form>
         </div>
-        </div>
-</header>
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="assets/js/script.js"></script>
+      </div>
+
+      <div class="col-lg-9">
+        <div id="today" class="mt-3"></div>
+        <div id="forecast" class="row mt-3"></div>
+      </div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="assets/js/script.js"></script>
 </body>
+
 </html>
