@@ -12,29 +12,24 @@
 
 <body>
 <header>
-    <div class="pos-f-t">
-        <div class="collapse" id="navbarToggleExternalContent">
+    <div class="container-span">
           <div class="bg-dark p-4">
-            <span class="text-muted">Toggleable via the navbar brand.</span>
+            <h3 class="text-white h4 text-center">Weather Dashboard</h3>
           </div>
         </div>
-        <nav class="navbar navbar-dark bg-dark">
-          <h3 class="text-white h4">Weather Dashboard</h3>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-        </nav>
-      </div>
 </header>
 
-      <div class="col-lg-3">
-        <div class="row">
-          <h3 class="card-header text-uppercase">Search By City</h3>
-            <label class="form-label" for="username">City</label>
-            <input name="username" id="username" type="text" autofocus="true" class="form-input" />
+<div class="container-fluid">
+<div class="row">
+    <div class="col-lg-3">
+        <h3 class="card-header">Search By City</h3>
+        <div class="form-inline form-group">
+            <input name="search" id="search" type="text" autofocus="true" class="form-input" />
             <button type="submit" class="btn" id="searchBtn">Get Forecast</button>
         </div>
-      </div>
+    </div>
+</div>
+</div>
 
       <div class="col-lg-9">
         <div id="today" class="mt-3"></div>

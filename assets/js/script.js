@@ -1,6 +1,6 @@
 // apiKey
 var apiKey = "1d4b1aacf5896d38bf0400bb7ba7aced";
-var apiUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + location + '+&appid=' + apiKey;
+var apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + location + "+&appid=" + apiKey;
 // create input form 
 $("#searchBtn").on("click", function() {
     var location = $("#location").val();
