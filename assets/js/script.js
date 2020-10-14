@@ -1,7 +1,9 @@
 // var userFormEl = document.querySelector("#user-form");
 // apiKey
+selectedCitiesEl = document.querySelector("#selectedCities");
+searchCityInputEl = document.querySelector("#searchCityInput");
 var apiKey = "1d4b1aacf5896d38bf0400bb7ba7aced";
-
+var selectedCitiesAr = [];
 
 var addCityToList = function(cityName) {
     var liEl = document.createElement("li");
@@ -12,8 +14,8 @@ var addCityToList = function(cityName) {
 }
 // // create current locale and date container
 var addNewCityToLocalStorage = function(cityName) {
-    CitiesAr.push(cityName);
-    Storage.setItem("citiesWeather", JSON.stringify(selectedCitiesAr));
+    selectedCitiesAr.push(cityName);
+    localStorage.setItem("citiesWeather", JSON.stringify(selectedCitiesAr));
 }
 
 // read list
@@ -31,7 +33,9 @@ var readCitiesList = function() {
 // create api function
 var getCurrentWeather = function(cityName, needToAddList) {
     // format the weather api url
-    var apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + location + "+&appid=" + apiKey;
+    errorEl.innerHTML="";
+
+    var apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "+&appid=" + apiKey;
 
     // make a request to the url
     fetch(apiUrl).then(function(response) {
@@ -39,7 +43,12 @@ var getCurrentWeather = function(cityName, needToAddList) {
         response.json().then(function(data){
             var containerCurrentWeather = document.getElementById("containerCurrentWeather");
             containerCurrentWeather.className = containerCurrentWeather.className.replace(/\binvisible\b/g, "visble");
-            document.getElementById("")
+            document.getElementById("cityNameWeather").innerHTML = data.name;
+            document.getElementById("currentWeatherIcon").src = "http://openweathermap.org/img/wn" + data.weather[0].icon + ".png";
+            document.getElementById("temperature").innerHTML = data.main.temp;
+            document.getElementById("humidity").innerHTML = data.main.temp + "%";
+            document.getElementById("windSpeed").innerHTML = data.wind.speed + "MPH";
+            document.getElementById("UVIndex").innerHTML = data.main.temp;
 
         if (needToAddList && !selectedCitiesAr.includes(data.name)){
             addCityToList(data.name);
@@ -52,28 +61,46 @@ var getCurrentWeather = function(cityName, needToAddList) {
     }  
 })
 
-    .catch(function(error) {
-        // notice this '.catch()' getting chained onto the end of the '.then()' method
-        alert("Unable to connect to Weather Data");
-    });
-}
+//     .catch(function(error) {
+//         // notice this '.catch()' getting chained onto the end of the '.then()' method
+//         alert("Unable to connect to Weather Data");
+//     });
+// }
 
 // create 5 day forecast container
 var get5DaysWeather = function(cityName) {
-    if (forecast.length === 0) {
-        forecastContainerEl.textContent = "No data";
-        return;
+    var apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "+&appid=" + apiKey;
+
+    fetch(apiUrl).then(function(response) {
+        if (response.ok) {
+            response.json().then(function(data){
+
+                console.log(data);
+
+                var j = 1;
+                for (i=0; i< data.list.length; i++){
+                    
+                    j++;
+                }
+            });
+} else {
+    displayError(response.statusText, cityName);
     }
-},
+})
+.catch(function(error){
+        displayError("Unable to connect to the server", cityName);
+    });
+}
+};
 
 // get current weather
-var searchCity = function () {
+var searchCity = function (){
     if (!searchCityInputEl.value){ 
-    return;
+        return;
     }
     var cityName = searchCityInputEl.value.trim();
 
-    getCurrentWeather(cityName, ture);
+    getCurrentWeather(cityName, true);
     get5DaysWeather(cityName);
 
     searchCityInputEl.value = "";
@@ -87,6 +114,6 @@ var selectCityFromList = function(event) {
     get5DaysWeather(cityName);
 }
 
-selectedCitiesEl.addEventListener("click", selectCityFromList);
+selectedCitiesEl.addEventListener("onclick", selectCityFromList);
 
-read CitiesList();
+readCitiesList();
