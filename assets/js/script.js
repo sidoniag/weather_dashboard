@@ -1,8 +1,5 @@
-// var userFormEl = document.querySelector("#user-form");
-// apiKey
 selectedCitiesEl = document.querySelector("#selectedCities");
 searchCityInputEl = document.querySelector("#searchCityInput");
-var apiKey = "1d4b1aacf5896d38bf0400bb7ba7aced";
 var selectedCitiesAr = [];
 
 var addCityToList = function(cityName) {
@@ -33,19 +30,20 @@ var readCitiesList = function() {
 // create api function
 var getCurrentWeather = function(cityName, needToAddList) {
     // format the weather api url
-    errorEl.innerHTML="";
+    // errorEl.innerHTML="";
 
-    var apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "+&appid=" + apiKey;
+var apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&units=imperial+&appid=1d4b1aacf5896d38bf0400bb7ba7aced";
 
     // make a request to the url
     fetch(apiUrl).then(function(response) {
+        console.log(response);
         if (response.ok) {
         response.json().then(function(data){
             var containerCurrentWeather = document.getElementById("containerCurrentWeather");
             containerCurrentWeather.className = containerCurrentWeather.className.replace(/\binvisible\b/g, "visble");
-            document.getElementById("cityNameWeather").innerHTML = data.name;
+            document.getElementById("cityNameWeather").innerHTML = data.name + "&nbsp;&nbsp;(" + moment().format("M/DD/YYYY") + ")";
             document.getElementById("currentWeatherIcon").src = "http://openweathermap.org/img/wn" + data.weather[0].icon + ".png";
-            document.getElementById("temperature").innerHTML = data.main.temp;
+            document.getElementById("temperature").innerHTML = data.main.temp + "F";
             document.getElementById("humidity").innerHTML = data.main.temp + "%";
             document.getElementById("windSpeed").innerHTML = data.wind.speed + "MPH";
             document.getElementById("UVIndex").innerHTML = data.main.temp;
@@ -69,7 +67,7 @@ var getCurrentWeather = function(cityName, needToAddList) {
 
 // create 5 day forecast container
 var get5DaysWeather = function(cityName) {
-    var apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "+&appid=" + apiKey;
+    var apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&units=imperial+&appid=1d4b1aacf5896d38bf0400bb7ba7aced";
 
     fetch(apiUrl).then(function(response) {
         if (response.ok) {
@@ -100,6 +98,7 @@ var searchCity = function (){
     }
     var cityName = searchCityInputEl.value.trim();
 
+    // API call
     getCurrentWeather(cityName, true);
     get5DaysWeather(cityName);
 
