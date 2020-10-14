@@ -67,11 +67,11 @@ var get5DayWeather = function(cityName) {
     fetch(apiUrl).then(function(response) {
         if (response.ok) {
             response.json().then(function(data){
-
                 console.log(data);
 
                 var j = 1;
                 for (i=0; i< data.list.length; i++){
+                    // get weather conditions at 3pm
                     if (data.list[i].dt_txt.include("15:00")){
                         var container5DayWeather = document.getElementById("container5DayWeather");
                         container5DayWeather.className = container5DayWeather.className.replace(/\binvisible\b/g, "visible");

@@ -26,6 +26,7 @@ An application that allows the user to enter a location to find the current weat
 [Deployed Application](https://sidoniag.github.io/weather_dashboard/)
 
 ## Page Preview
+<img src="./assets/img/weather_dashboard_search.png">
 
 ## Questions
 Visit my [github](https://github.com/sidoniag)
