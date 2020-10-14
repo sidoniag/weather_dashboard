@@ -5,9 +5,9 @@ var apiKey = "1d4b1aacf5896d38bf0400bb7ba7aced";
 
 var addCityToList = function(cityName) {
     var liEl = document.createElement("li");
-    innerHTML = cityName;
-    className= "list-group-item";
-    getAttribute("data-city", cityName);
+    liEl.innerHTML = cityName;
+    liEl.className= "list-group-item";
+    liEl.setAttribute("data-city", cityName);
     selectedCitiesEl.appendChild(liEl);
 }
 // // create current locale and date container
@@ -17,6 +17,16 @@ var addNewCityToLocalStorage = function(cityName) {
 }
 
 // read list
+var readCitiesList = function() {
+    var listItems = localStorage.getItem("citiesWeather");
+    if (listItems){
+        selectedCitiesAr = JSON.parse(listItems);
+
+        for (i = 0; i < selectedCitiesAr.length; i++){
+            addCityToList(selectedCitiesAr[i]);
+        }
+    }
+}
 
 // create api function
 var getCurrentWeather = function(cityName, needToAddList) {
