@@ -3,15 +3,20 @@
 var apiKey = "1d4b1aacf5896d38bf0400bb7ba7aced";
 
 
+var addCityToList = function(cityName) {
+    var liEl = document.createElement("li");
+    innerHTML = cityName;
+    className= "list-group-item";
+    getAttribute("data-city", cityName);
+    selectedCitiesEl.appendChild(liEl);
+}
 // // create current locale and date container
-// function getForecast(location) {
-//     fetch(apiUrl)
-//     .then(function(response) {
-//         return response.json();
-//     })
-// }
+var addNewCityToLocalStorage = function(cityName) {
+    CitiesAr.push(cityName);
+    Storage.setItem("citiesWeather", JSON.stringify(selectedCitiesAr));
+}
 
-// create recent searches container
+// read list
 
 // create api function
 var getCurrentWeather = function(cityName, needToAddList) {
@@ -44,7 +49,7 @@ var getCurrentWeather = function(cityName, needToAddList) {
 }
 
 // create 5 day forecast container
-var get5DaysWeather = function(forecast) {
+var get5DaysWeather = function(cityName) {
     if (forecast.length === 0) {
         forecastContainerEl.textContent = "No data";
         return;

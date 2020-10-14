@@ -4,38 +4,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" /> -->
     <link rel="style" href="./assets/css/style.css" />
     <title>Weather Dashboard</title>
 </head>
 <body>
 <header>
-  <nav class>
-    <h3 class="text-white h4 text-center">Weather Dashboard</h3>
+  <nav class="navbar navbar-dark bg-dark">
+    <h1 class="text-white mx-auto">Weather Dashboard</h3>
   </nav>
 </header>
     <div class="container">
       <div class="row">
-          <div class="bg-dark p-4">
-          </div>
-          <h5></h5>
-        </div>
+          <div class="col-12 col-lg-3 bg-light d-flex flex-column align-items-left">
+          
+          <h5><label for="searchCity" class="font-weight-md mt-3">Search for a City</label></h5>
         <div class="d-flex">
-          <input name="search" id="search" type="text" autofocus="true" class="form-input" />
-          <button type="submit" class="btn" id="searchBtn">Get Forecast</button>
+          <input type="text" class="form-control" placeholder="City Name" aria-label="City Name" aria-describedby="basic-addon1">
+          <button class="btn btn-primary" id="btnSearch" onclick="searchCity()"></button><span class="input-group-text" id="basic-addon2">get Forecast</span>
         </div>
         <div>
           <ul>
           </ul>
         </div>
     </div>
+  </div>
+</div>
 
 <div class="col-lg-3">
   <div id = "error" class="text-danger"></div>
 
   <div class="d-flex">
-    <div class="">
+    <div class="col">
       <h3></h3>
       <img id=""></img>
     </div>
@@ -45,6 +47,7 @@
     <div class="py-2"></div>
   </div>
 
+  <!-- 5 day forecast -->
         <div class="mt-2 pl-3 invisible" id="container5DaysHeading">
           <h3>5-Day Forecast</h3>
         </div>

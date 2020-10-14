@@ -17,16 +17,17 @@ An application that allows the user to enter a location to find the current weat
 * JQuery
 * Open Weather API
 
-## Screenshots
-Home page:
-![home page](./public/assets/images/note_start.png)
+## GitHub Repository
+
+[GitHub](https://github.com/sidoniag/weather_dashboard)
 
 ## Deployment
 
-<https://sidoniag.github.io/weather_dashboard/>
+[Deployed Application](https://sidoniag.github.io/weather_dashboard/)
+
+## Page Preview
 
 ## Questions
-Visit my github
-<https://github.com/sidoniag>
+Visit my [github](https://github.com/sidoniag)
 
-Any questions can be emailed to me directly: <sidoniag@gmail.com>
+Or [email](seekersig@gmail.com) me directly
